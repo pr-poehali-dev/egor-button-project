@@ -6,6 +6,11 @@ const Index = () => {
   const [showImage, setShowImage] = useState<string | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [backgroundImage, setBackgroundImage] = useState('https://cdn.poehali.dev/files/5bea698f-f777-431b-a784-60af35d4cd0f.png');
+  const backgrounds = [
+    'https://cdn.poehali.dev/files/5bea698f-f777-431b-a784-60af35d4cd0f.png',
+    'https://cdn.poehali.dev/files/3cc44705-9cee-4844-9523-bad77b6de370.png',
+    'https://cdn.poehali.dev/files/3f4c87d4-25d0-4429-b072-cd832b01f18a.png'
+  ];
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
@@ -91,7 +96,10 @@ const Index = () => {
           </Button>
 
           <Button 
-            onClick={() => setShowImage(showImage === 'chin' ? null : 'chin')}
+            onClick={() => {
+              setShowImage(showImage === 'chin' ? null : 'chin');
+              setBackgroundImage('https://cdn.poehali.dev/files/3f4c87d4-25d0-4429-b072-cd832b01f18a.png');
+            }}
             size="lg"
             className="text-3xl px-20 py-10 rounded-full bg-white text-black hover:bg-white/90 transition-all duration-300 shadow-2xl hover:shadow-3xl font-black"
           >
