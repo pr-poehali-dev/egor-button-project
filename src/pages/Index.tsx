@@ -5,6 +5,7 @@ import Icon from '@/components/ui/icon';
 const Index = () => {
   const [showImage, setShowImage] = useState<string | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [backgroundImage, setBackgroundImage] = useState('https://cdn.poehali.dev/files/5bea698f-f777-431b-a784-60af35d4cd0f.png');
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
@@ -24,11 +25,19 @@ const Index = () => {
     }
   };
 
+  const toggleBackground = () => {
+    setBackgroundImage(prev => 
+      prev === 'https://cdn.poehali.dev/files/5bea698f-f777-431b-a784-60af35d4cd0f.png' 
+        ? 'https://cdn.poehali.dev/files/3cc44705-9cee-4844-9523-bad77b6de370.png'
+        : 'https://cdn.poehali.dev/files/5bea698f-f777-431b-a784-60af35d4cd0f.png'
+    );
+  };
+
   return (
     <div 
-      className="min-h-screen flex flex-col items-center justify-center px-4 relative"
+      className="min-h-screen flex flex-col items-center justify-center px-4 relative transition-all duration-500"
       style={{
-        backgroundImage: 'url(https://cdn.poehali.dev/files/5bea698f-f777-431b-a784-60af35d4cd0f.png)',
+        backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
@@ -69,6 +78,14 @@ const Index = () => {
           >
             опа а тут кто
           </Button>
+
+          <Button 
+            onClick={toggleBackground}
+            size="lg"
+            className="text-xl px-12 py-6 rounded-full bg-white text-black hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl"
+          >
+            svin jirni
+          </Button>
         </div>
 
         {showImage === 'egor' && (
@@ -96,6 +113,16 @@ const Index = () => {
             <img 
               src="https://cdn.poehali.dev/files/6b225bad-3674-4ce9-8ced-4034618ce45d.png"
               alt="опа а тут кто"
+              className="max-w-md w-full rounded-2xl shadow-2xl mx-auto"
+            />
+          </div>
+        )}
+
+        {showImage === 'svin' && (
+          <div className="animate-in fade-in zoom-in duration-500">
+            <img 
+              src="https://cdn.poehali.dev/files/7fb25e27-a18f-4560-b370-e63b2dd38683.png"
+              alt="svin jirni"
               className="max-w-md w-full rounded-2xl shadow-2xl mx-auto"
             />
           </div>
