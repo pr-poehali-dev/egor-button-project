@@ -45,7 +45,7 @@ const Index = () => {
       </Button>
 
       <div className="text-center space-y-8 relative z-10">
-        <div className="flex gap-4 justify-center">
+        <div className="flex flex-wrap gap-4 justify-center">
           <Button 
             onClick={() => setShowImage(showImage === 'egor' ? null : 'egor')}
             size="lg"
@@ -60,6 +60,14 @@ const Index = () => {
             className="text-xl px-12 py-6 rounded-full bg-white text-black hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             Ян
+          </Button>
+
+          <Button 
+            onClick={() => setShowImage(showImage === 'surprise' ? null : 'surprise')}
+            size="lg"
+            className="text-xl px-12 py-6 rounded-full bg-white text-black hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl"
+          >
+            опа а тут кто
           </Button>
         </div>
 
@@ -78,6 +86,16 @@ const Index = () => {
             <img 
               src="https://cdn.poehali.dev/files/38f20bc0-c61d-4c77-bca9-c65a5eba8146.png"
               alt="Ян"
+              className="max-w-md w-full rounded-2xl shadow-2xl mx-auto"
+            />
+          </div>
+        )}
+
+        {showImage === 'surprise' && (
+          <div className="animate-in fade-in zoom-in duration-500">
+            <img 
+              src="https://cdn.poehali.dev/files/6b225bad-3674-4ce9-8ced-4034618ce45d.png"
+              alt="опа а тут кто"
               className="max-w-md w-full rounded-2xl shadow-2xl mx-auto"
             />
           </div>
