@@ -89,6 +89,14 @@ const Index = () => {
           >
             svin jirni
           </Button>
+
+          <Button 
+            onClick={() => setShowImage(showImage === 'chin' ? null : 'chin')}
+            size="lg"
+            className="text-3xl px-20 py-10 rounded-full bg-white text-black hover:bg-white/90 transition-all duration-300 shadow-2xl hover:shadow-3xl font-black"
+          >
+            ТРИ ПОДБОРОДКА
+          </Button>
         </div>
 
         {showImage === 'egor' && (
@@ -126,6 +134,16 @@ const Index = () => {
             <img 
               src="https://cdn.poehali.dev/files/4facb3ad-033d-41dc-8a5a-5575fa673977.png"
               alt="svin jirni"
+              className="max-w-md w-full rounded-2xl shadow-2xl mx-auto"
+            />
+          </div>
+        )}
+
+        {showImage === 'chin' && (
+          <div className="animate-in fade-in zoom-in duration-500">
+            <img 
+              src="https://cdn.poehali.dev/files/2ca0b3b6-b9aa-4252-a2ca-8c3e822ff184.png"
+              alt="три подбородка"
               className="max-w-md w-full rounded-2xl shadow-2xl mx-auto"
             />
           </div>
