@@ -107,7 +107,10 @@ const Index = () => {
           </Button>
 
           <Button 
-            onClick={() => setShowImage(showImage === 'gavrik' ? null : 'gavrik')}
+            onClick={() => {
+              setShowImage(showImage === 'gavrik' ? null : 'gavrik');
+              setBackgroundImage('https://cdn.poehali.dev/files/077f03fe-4074-48f6-a048-8223325c55cf.png');
+            }}
             size="sm"
             className="text-sm px-4 py-2 rounded-full bg-white text-black hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
