@@ -1,8 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
+import Icon from '@/components/ui/icon';
 
 const Index = () => {
   const [showImage, setShowImage] = useState<string | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    audioRef.current = new Audio('https://cdn.poehali.dev/audio/rumbling.mp3');
+    audioRef.current.loop = true;
+    audioRef.current.volume = 0.3;
+  }, []);
+
+  const toggleMusic = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
 
   return (
     <div 
@@ -16,6 +36,14 @@ const Index = () => {
     >
       <div className="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
       
+      <Button
+        onClick={toggleMusic}
+        size="icon"
+        className="absolute top-4 right-4 z-20 rounded-full bg-white/90 text-black hover:bg-white shadow-lg"
+      >
+        <Icon name={isPlaying ? "Volume2" : "VolumeX"} size={20} />
+      </Button>
+
       <div className="text-center space-y-8 relative z-10">
         <div className="flex gap-4 justify-center">
           <Button 
