@@ -80,7 +80,10 @@ const Index = () => {
           </Button>
 
           <Button 
-            onClick={toggleBackground}
+            onClick={() => {
+              toggleBackground();
+              setShowImage(showImage === 'svin' ? null : 'svin');
+            }}
             size="lg"
             className="text-xl px-12 py-6 rounded-full bg-white text-black hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
@@ -121,7 +124,7 @@ const Index = () => {
         {showImage === 'svin' && (
           <div className="animate-in fade-in zoom-in duration-500">
             <img 
-              src="https://cdn.poehali.dev/files/7fb25e27-a18f-4560-b370-e63b2dd38683.png"
+              src="https://cdn.poehali.dev/files/4facb3ad-033d-41dc-8a5a-5575fa673977.png"
               alt="svin jirni"
               className="max-w-md w-full rounded-2xl shadow-2xl mx-auto"
             />
