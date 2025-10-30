@@ -105,6 +105,14 @@ const Index = () => {
           >
             ТРИ ПОДБОРОДКА
           </Button>
+
+          <Button 
+            onClick={() => setShowImage(showImage === 'gavrik' ? null : 'gavrik')}
+            size="sm"
+            className="text-sm px-4 py-2 rounded-full bg-white text-black hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl"
+          >
+            гаврик мать режет
+          </Button>
         </div>
 
         {showImage === 'egor' && (
@@ -152,6 +160,16 @@ const Index = () => {
             <img 
               src="https://cdn.poehali.dev/files/2ca0b3b6-b9aa-4252-a2ca-8c3e822ff184.png"
               alt="три подбородка"
+              className="max-w-md w-full rounded-2xl shadow-2xl mx-auto"
+            />
+          </div>
+        )}
+
+        {showImage === 'gavrik' && (
+          <div className="animate-in fade-in zoom-in duration-500">
+            <img 
+              src="https://cdn.poehali.dev/files/18f430c2-a3d5-40f6-984f-e72ae83ecece.png"
+              alt="гаврик мать режет"
               className="max-w-md w-full rounded-2xl shadow-2xl mx-auto"
             />
           </div>
